@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="account_create">
+  <div>
+    <h4>Quit: {{ target_user.username }}</h4>
+  </div>
+  <form action="{% url 'accountapp:delete' pk=target_user.pk %}" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-dark rounded-pill col-6 mt-3">
+  </form>
+</div>
+
+{% endblock %}

@@ -9,7 +9,10 @@
   {% if target_user == user %} 
   <div>
     <a href="{% url 'accountapp:update' pk=target_user.pk %}" class="btn btn-dark rounded-pill mt-3">
-      Change Account
+      Change
+    </a>
+    <a href="{% url 'accountapp:delete' pk=target_user.pk %}" class="btn btn-danger rounded-pill mt-3">
+      Quit
     </a>
   </div>
   {% endif %}
