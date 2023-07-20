@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="account_create">
+  
+  {{ target_user.username }}
+  
+  {% if target_user == user %} 
+  <div>
+    <a href="{% url 'accountapp:update' pk=target_user.pk %}" class="btn btn-dark rounded-pill mt-3">
+      Change Account
+    </a>
+  </div>
+  {% endif %}
+  
+</div>
+
+{% endblock %}
