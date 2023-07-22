@@ -1,7 +1,11 @@
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseForbidden
 from django.shortcuts import render
 from django.urls import reverse
-from django.views.generic import CreateView
+from django.utils.decorators import method_decorator
+from django.views.generic import CreateView, UpdateView
 
+from profileapp.decorators import profile_ownership_required
 from profileapp.forms import ProfileCreationForm
 from profileapp.models import Profile
 
@@ -20,6 +24,21 @@ class ProfileCreateView(CreateView):
     
     def get_success_url(self):
         return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
-    
-    # 로그인 한사람만 프로필을 만들 수 있게
-    # 나만 내 프로필을 만들 수 있게
+
+has_ownership = [
+    login_required,
+    profile_ownership_required,
+]
+@method_decorator(has_ownership, 'get')
+@method_decorator(has_ownership, 'post')
+class ProfileUpdateView(UpdateView):
+    model = Profile
+    context_object_name = 'target_profile'
+    form_class = ProfileCreationForm
+    template_name = 'profileapp/update.html'
+
+    def get_success_url(self):
+        return reverse('accountapp:detail', kwargs={'pk': self.object.user.pk})
+
+
+
