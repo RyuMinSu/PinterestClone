@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
 from articleapp.forms import ArticleCreationForm
 from articleapp.models import Article
@@ -17,4 +17,10 @@ class ArticleCreateView(CreateView):
         temp_article.writer = self.request.user
         temp_article.save()
         return super().form_valid(form)
+
+class ArticleListView(ListView):
+    model = Article
+    # context_object_name = 'article_list'
+    template_name = 'articleapp/list.html'
+
 
