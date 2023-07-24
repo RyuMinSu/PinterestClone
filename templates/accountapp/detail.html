@@ -43,4 +43,8 @@
     {% endif %}
 </div>
 
+{% for article in object_list %}
+  <img src="{{ article.image.url }}" alt="">
+{% endfor %}
+
 {% endblock %}

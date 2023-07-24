@@ -16,7 +16,8 @@
   </div>
   
   <div>
-    <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-dark rounded-pill col-6 mt-3">Update</a>
+    <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-dark rounded-pill col-3 mt-3">Update</a>
+    <a href="{% url 'articleapp:delete' pk=target_article.pk %}" class="btn btn-danger rounded-pill col-3 mt-3">Delete</a>
   </div>
 </div>
 
