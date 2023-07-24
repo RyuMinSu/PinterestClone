@@ -1,0 +1,46 @@
+{% load static %}
+
+
+<style>
+.container div {
+  width: 250px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+}
+.container img {
+  width: 100%;
+}
+</style>
+
+<!DOCTYPE html>
+{% if article_list %}
+<div class="container">
+  {% for article in article_list %}
+  <div>
+    <a href="{% url 'articleapp:detail' pk=article.pk %}">
+      <img src="{{ article.image.url }}" alt="" style="border-radius:1rem;">
+    </a>
+  </div>
+  {% endfor %}
+  <script src="{% static 'js/magicgrid.js' %}"></script>
+</div>
+{% else %}
+<h3>Article Not Yet</h3>
+{% endif %}
+
+<!--  pagination  -->
+{% include 'snippets/pagination.html' %}
+
+
+{% if user.is_authenticated %}
+<div style="text-align:center;">
+    <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill mt-3 mb-3 px-3">
+        Create Article
+    </a>
+</div>
+{% endif %}
+
+

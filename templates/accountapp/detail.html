@@ -43,8 +43,9 @@
     {% endif %}
 </div>
 
-{% for article in object_list %}
-  <img src="{{ article.image.url }}" alt="">
-{% endfor %}
+
+<div>
+  {% include 'snippets/list_fragment.html' with article_list=object_list %}
+</div>
 
 {% endblock %}
