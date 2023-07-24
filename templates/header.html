@@ -6,7 +6,9 @@
     <span>
       <a href="{% url 'articleapp:list' %}">Articles</a> |
     </span>
-    <span>nav2</span> |
+    <span>
+      <a href="{% url 'projectapp:list' %}">Projects</a> |
+    </span>
     <span>nav3</span> |
     <span>nav4</span> |
     {% if user.is_authenticated %}
