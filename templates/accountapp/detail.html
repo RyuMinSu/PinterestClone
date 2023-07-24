@@ -5,7 +5,8 @@
 <div class="account_create">
     {% if target_user == user %}
       {% if target_user.profile %}
-        <img src="{{ target_user.profile.image.url }}" alt="">
+          <img src="{{ target_user.profile.image.url }}" alt="" style="width: 10rem;
+    height: 10rem; border-radius: 20rem; margin-bottom: 2rem;">
         <p>
           {{ target_user.profile.nickname }}
           <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">edit</a>

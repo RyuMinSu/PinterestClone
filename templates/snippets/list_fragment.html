@@ -4,7 +4,6 @@
 <style>
 .container div {
   width: 250px;
-  background-color: antiquewhite;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,12 +34,12 @@
 {% include 'snippets/pagination.html' %}
 
 
-{% if user.is_authenticated %}
-<div style="text-align:center;">
-    <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill mt-3 mb-3 px-3">
-        Create Article
-    </a>
-</div>
-{% endif %}
+<!--{% if user.is_authenticated %}-->
+<!--<div style="text-align:center;">-->
+<!--    <a href="{% url 'articleapp:create' %}" class="btn btn-dark rounded-pill mt-3 mb-3 px-3">-->
+<!--        Create Article-->
+<!--    </a>-->
+<!--</div>-->
+<!--{% endif %}-->
 
 
