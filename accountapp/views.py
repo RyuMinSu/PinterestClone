@@ -12,6 +12,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
 from articleapp.models import Article
+from projectapp.models import Project
 
 has_ownership = [
     login_required,
