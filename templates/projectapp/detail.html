@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="account_create">
+  <div>
+    <p>{{ target_project.title }}</p>
+    <p>{{ target_project.description }}</p>
+  </div>
+  <div>
+    <img src="{{ target_project.image.url }}" alt="" style="width: 10rem; height: 10rem; border-radius: 20rem; margin-bottom: 2rem;">
+  </div>
+</div>
+
+
+{% endblock %}
