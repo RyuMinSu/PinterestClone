@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView
 
 from articleapp.forms import ArticleCreationForm
 from articleapp.models import Article
@@ -35,3 +35,15 @@ class ArticleDetailView(DetailView):
     model = Article
     context_object_name = 'target_article'
     template_name = "articleapp/detail.html"
+
+class ArticleUpdateView(UpdateView):
+    model = Article
+    context_object_name = 'target_article'
+    form_class = ArticleCreationForm
+    template_name = 'articleapp/update.html'
+
+    def get_success_url(self):
+        return reverse('articleapp:detail', kwargs={'pk':self.object.pk})
+
+
+

@@ -14,6 +14,11 @@
     <p>{{ target_article.title }}</p>
     <p>{{ target_article.content }}</p>
   </div>
+  
+  <div>
+    <a href="{% url 'articleapp:update' pk=target_article.pk %}" class="btn btn-dark rounded-pill col-6 mt-3">Update</a>
+  </div>
 </div>
+
 
 {% endblock %}
