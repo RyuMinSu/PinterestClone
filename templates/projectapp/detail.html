@@ -4,13 +4,27 @@
 
 <div class="account_create">
   <div>
+    <img src="{{ target_project.image.url }}" alt="" style="width: 10rem; height: 10rem; border-radius: 20rem; margin-bottom: 2rem;">
+  </div>
+  <div>
     <p>{{ target_project.title }}</p>
     <p>{{ target_project.description }}</p>
   </div>
-  <div>
-    <img src="{{ target_project.image.url }}" alt="" style="width: 10rem; height: 10rem; border-radius: 20rem; margin-bottom: 2rem;">
-  </div>
 </div>
+
+<div class="text-center mb-4">
+{% if user.is_authenticated %}
+  {% if not subscription %}
+  <a href="{% url 'subscriptionapp:subscribe' %}?project_pk={{ target_project.pk }}" class="btn btn-primary rounded-pill">
+    Subscribe
+  </a>
+  {% else %}
+  <a href="{% url 'subscriptionapp:subscribe' %}?project_pk={{ target_project.pk }}" class="btn btn-dark rounded-pill">Unsubscribe</a>
+  {% endif %}
+{% endif %}
+</div>
+
+
 
 <div>
   {% include 'snippets/list_fragment.html' with article_list=object_list %}
