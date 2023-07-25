@@ -9,15 +9,15 @@
     height: 10rem; border-radius: 20rem; margin-bottom: 2rem;">
         <p>
           {{ target_user.profile.nickname }}
-          <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}">edit</a>
+          <a href="{% url 'profileapp:update' pk=target_user.profile.pk %}" class="material-icons">edit</a>
         </p>
         <p>{{ target_user.profile.message }}</p>
         <div>
-          <a href="{% url 'accountapp:update' pk=target_user.pk %}" class="btn btn-dark rounded-pill mt-3">
-            Change
+          <a href="{% url 'accountapp:update' pk=target_user.pk %}" class="mt-3 material-icons">
+            settings
           </a>
-          <a href="{% url 'accountapp:delete' pk=target_user.pk %}" class="btn btn-danger rounded-pill mt-3">
-            Quit
+          <a href="{% url 'accountapp:delete' pk=target_user.pk %}" class="mt-3 material-icons">
+            cancel
           </a>
         </div>
       {% else %}
